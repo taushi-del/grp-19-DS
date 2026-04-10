@@ -15,7 +15,7 @@ This project detects IoT-based cyber attacks using machine learning techniques.
 ---
 ##  Dataset
 Due to large size, dataset is available here:
-[Google Drive Link]
+https://drive.google.com/drive/folders/1T7Mh_OpOG7tj4mrAEX5fKbVaQBBwAdom?usp=drive_link
 ---
 ##  How to Run
 pip install -r requirements.txt
