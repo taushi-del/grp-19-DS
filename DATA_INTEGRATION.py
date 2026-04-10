@@ -170,27 +170,17 @@ final_df.dropna(inplace=True)
 final_df.drop_duplicates(inplace=True)
 
 print("🔥 Final Shape AFTER CLEANING:", final_df.shape)
-# # BALANCE DATASET (VERY IMPORTANT)
-# # =========================================
-# min_count = final_df['Attack_Type'].value_counts().min()
-
-# balanced_df = final_df.groupby('Attack_Type').sample(n=min_count)
-
-# print("🔥 Balanced Dataset Shape:", balanced_df.shape)
-
-# # =========================================
-# # BALANCE DATASET (VERY IMPORTANT)
-# # =========================================
-# min_count = final_df['Attack_Type'].value_counts().min()
-
-# balanced_df = final_df.groupby('Attack_Type').sample(n=min_count)
-
-# print("🔥 Balanced Dataset Shape:", balanced_df.shape)
 
 
 
+# =========================================
+# BALANCE DATASET (VERY IMPORTANT)
+# =========================================
+min_count = final_df['Attack_Type'].value_counts().min()
 
+balanced_df = final_df.groupby('Attack_Type').sample(n=min_count)
 
+print("🔥 Balanced Dataset Shape:", balanced_df.shape)
 
 # ===============================
 # SAVE FINAL DATASET
