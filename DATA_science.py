@@ -1,6 +1,3 @@
-# =========================================
-# 1. IMPORTS
-# =========================================
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -24,7 +21,7 @@ from sklearn.metrics import silhouette_score
 from scipy.stats import ttest_ind
 
 # =========================================
-# 2. LOAD DATA
+# 2. Load dataset which was integrated
 # =========================================
 df = pd.read_csv("FINAL_IOT_DATASET.csv")
 
@@ -36,7 +33,7 @@ if len(df) > 200000:
     print("Reduced Shape:", df.shape)
 
 # =========================================
-# 3. FIX LABEL COLUMN (SAFE)
+# 3.  LABEL COLUMN
 # =========================================
 print("Columns:", df.columns)
 
@@ -53,21 +50,21 @@ if 'Attack_Type' not in df.columns:
     raise Exception("❌ No label column found!")
 
 # =========================================
-# 4. CLEANING
+# 4. DATA CLEANING
 # =========================================
 df.replace([np.inf, -np.inf], np.nan, inplace=True)
 df.dropna(inplace=True)
 df.drop_duplicates(inplace=True)
 
 # =========================================
-# 5. ENCODING (FIXED ORDER ✅)
+# 5. ENCODING 
 # =========================================
 if df['Attack_Type'].dtype != 'int64' and df['Attack_Type'].dtype != 'float64':
     le = LabelEncoder()
     df['Attack_Type'] = le.fit_transform(df['Attack_Type'])
 
 # =========================================
-# 6. KEEP NUMERIC ONLY (AFTER encoding)
+# 6. KEEP NUMERIC ONLY 
 # =========================================
 df_numeric = df.select_dtypes(include=[np.number])
 
@@ -226,7 +223,4 @@ try:
 except:
     print("Clustering skipped")
 
-# =========================================
-# DONE
-# =========================================
 print("\n FINAL PIPELINE RUN SUCCESSFUL")
